@@ -1,3 +1,13 @@
 #canvas {
     border: 5px solid black;
 }
+#toolbar {
+    display: flex;
+    flex-direction: row;
+}
+.tool {
+    margin-right: 2%;
+}
+p {
+    margin-right: 1%;
+}

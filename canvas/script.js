@@ -27,11 +27,15 @@ function stopPainting() {
 function sketch(event) {
     if (!paint) return;
     ctx.beginPath();
-    ctx.lineWidth = 5;
+    ctx.lineWidth = document.querySelector('#inputWidth').value;
     ctx.lineCap = 'round';
-    ctx.strokeStyle = 'red';
+    ctx.strokeStyle = document.querySelector('#selColor').value;
     ctx.moveTo(coord.x, coord.y);
     getPosition(event);
     ctx.lineTo(coord.x , coord.y);
     ctx.stroke();
+}
+function clearArea() {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
