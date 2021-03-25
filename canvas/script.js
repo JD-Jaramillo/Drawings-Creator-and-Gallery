@@ -1,19 +1,12 @@
 window.addEventListener('load', () => {
 
-    resize();
     document.addEventListener('mousedown', startPainting);
     document.addEventListener('mouseup', stopPainting);
     document.addEventListener('mousemove', sketch);
-    window.addEventListener('resize', resize);
 });
 const canvas = document.querySelector('#canvas')
 
 const ctx = canvas.getContext('2d');
-
-function resize() {
-    ctx.canvas.width = window.innerWidth;
-    ctx.canvas.height = window.innerHeight;
-}
 
 let coord = { x: 0, y: 0 };
 
