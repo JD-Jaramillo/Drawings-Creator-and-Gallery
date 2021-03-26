@@ -11,13 +11,17 @@
 </head>
 
 <body>
-    <canvas id="canvas" width="800" Height="500"></canvas>
-    <section id="toolbar">
-    <div class="type">
-        <input type="radio" class="tool" id="pen" checked>
-        <label for="pen">
-            <i class="las la-pen"></i>
-        </label>
+    <div class="mininav">
+        <button id="save" class="action">Save</button>
+        <button id="clear" class="action" onclick="clearArea();return false;">Clear Canvas</button>
+    </div>
+    <container class="canvaslay">
+        <section id="toolbar">
+            <div class="type">
+            <input type="radio" class="tool" id="pen" checked>
+            <label for="pen">
+                <i class="las la-pen"></i>
+            </label>
         <input type="radio" class="tool" id="brush">
         <label for="brush">
             <i class="las la-paint-brush"></i>
@@ -35,13 +39,19 @@
             <i class="las la-text-width"></i>
         </label>
     </div>
-        <p>Line Width</p>
-        <input type="number" class="linealt" min="1" max="50" value="5" id="inputWidth">
-        <input type="color" value="#0000000" id="selColor" class="linealt">
-                <button id="save" class="action">Save</button>
-        <button id="clear" class="action" onclick="clearArea();return false;">Clear Canvas</button>
-        
-    </section>
+    <p>Width</p>
+    <input type="range" class="linealt" min="1" max="50" value="5" id="inputWidth">
+    <p>Opacity</p>
+    <input type="range" class="linealt" min="0" max="100" value="100" id="inputOpacity">
+    <p>Stroke</p>
+    <input type="range" class="linealt" min="0" max="50" value="0" id="inputStroke">
+    <p>Flow</p>
+    <input type="range" class="linealt" min="0" max="100" value="100" id="inputFlow">
+    <p>Color</p>
+    <input type="color" value="#0000000" id="selColor" class="linealt">
+</section>
+<canvas id="canvas" width="800" Height="500"></canvas>
+</container>
 </body>
 <script src="script.js"></script>
 
