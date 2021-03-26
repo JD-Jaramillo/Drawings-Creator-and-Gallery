@@ -72,6 +72,7 @@ function sketch(event) {
     ctx.lineCap = 'round';
     ctx.strokeStyle = document.querySelector('#selColor').value;
     ctx.moveTo(coord.x, coord.y);
+    ctx.globalAlpha = document.querySelector('#inputOpacity').value / 100
     getPosition(event);
     ctx.lineTo(coord.x, coord.y);
     ctx.stroke();
