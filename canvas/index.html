@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="1.3.0/css/line-awesome.css">
     <link rel="stylesheet" href="styles.css">
-    </link>
     <title>Canvas</title>
 </head>
 
@@ -15,15 +15,28 @@
     <section id="toolbar">
         <p>Line Width</p>
         <input type="number" class="tool" min="1" max="50" value="5" id="inputWidth">
-        <p>Color</p>
-        <select id="selColor" class="tool">
-            <option value="black" selected="selected">black</option>
-            <option value="blue">blue</option>
-            <option value="red">red</option>
-            <option value="green">green</option>
-            <option value="yellow">yellow</option>
-            <option value="pink">pink</option>
-        </select>
+        <input type="radio" class="tool" id="pen" checked>
+        <label for="pen">
+            <i class="las la-pen"></i>
+        </label>
+        <input type="radio" class="tool" id="brush">
+        <label for="brush">
+            <i class="las la-paint-brush"></i>
+        </label>
+        <input type="radio" class="tool" id="bucket">
+        <label for="bucket">
+            <i class="las la-fill-drip"></i>
+        </label>
+        <input type="radio" class="tool" id="eraser">
+        <label for="eraser">
+            <i class="las la-eraser"></i>
+        </label>
+        <input type="radio" class="tool" id="text">
+        <label for="text">
+            <i class="las la-text-width"></i>
+        </label>
+        <input type="color" value="#0000000" id="selColor" class="tool">
+        </input>
         <button id="clear" class="tool" onclick="clearArea();return false;">Clear Canvas</button>
     </section>
 </body>

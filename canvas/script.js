@@ -8,6 +8,8 @@ const canvas = document.querySelector('#canvas')
 
 const ctx = canvas.getContext('2d');
 
+
+
 let coord = { x: 0, y: 0 };
 
 let paint = false;
@@ -39,3 +41,4 @@ function clearArea() {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
+
