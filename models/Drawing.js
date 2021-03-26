@@ -5,6 +5,7 @@ class Drawing extends Model { }
 
 Drawing.init(
     {
+
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
