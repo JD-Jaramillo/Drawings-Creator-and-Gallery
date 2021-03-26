@@ -1,5 +1,5 @@
 {
-  "name": "Drawings-Creator-and-Gallery",
+  "name": "drawings-creator-and-gallery",
   "version": "1.0.0",
   "description": "Users can create LogIn and create drawings on their profile which are then stored in MySQL database, the user can then go back in and update the  drawings",
   "main": "server.js",
@@ -29,7 +29,5 @@
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.2"
   },
-  "devDependencies": {
-    "eslint": "^7.22.0"
-  }
+  "devDependencies": {}
 }
