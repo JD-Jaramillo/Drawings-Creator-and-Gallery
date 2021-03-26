@@ -61,6 +61,23 @@ router.get('/user', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   });
+=======
+        // Find the logged in user based on the session ID
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: User }],
+        });
+
+        const user = userData.get({ plain: true });
+
+        res.render('user', {
+            ...user,
+            logged_in: true
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
