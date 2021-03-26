@@ -33,20 +33,21 @@ function draw() {
     let size = parseInt(document.querySelector("#inputWidth").value);
     let color = document.querySelector("#selColor").value;
     let opacity = parseInt(document.querySelector("#inputOpacity").value);
-    //let stroke = parseInt(document.querySelector("#inputStorke").value);
-    let flow = parseInt(document.querySelector("#inputFlow").value);
 
     if (choice = "pen") {
         ctx.lineWidth = 3;
         ctx.lineCap = "butt";
         ctx.strokeStyle = color;
+        ctx.globalAlpha = opacity/100;
     } else if (choice ="brush") {
         ctx.lineWidth = size;
         ctx.lineCap = "round";
         ctx.strokeStyle = color;
+        ctx.globalAlpha = opacity/100;
     } else if (choice ="bucket") {
         ctx.fillStyle = color;
         ctx.fill();
+        ctx.globalAlpha = opacity/100;
     } else if (choice ="eraser") {
         ctx.globalCompositeOperation = "destination-out";
         ctx.arc(x, y, 10, 0, 2 * Math.PI);
@@ -59,6 +60,7 @@ function draw() {
         ctx.font = "${size}px Verdana";
         ctx.strokeText();
         ctx.strokeStyle = color;
+        ctx.globalAlpha = opacity/100;
     } else (console.log("error"))
 
 }
@@ -72,7 +74,7 @@ function sketch(event) {
     ctx.lineCap = 'round';
     ctx.strokeStyle = document.querySelector('#selColor').value;
     ctx.moveTo(coord.x, coord.y);
-    ctx.globalAlpha = document.querySelector('#inputOpacity').value / 100
+    ctx.globalAlpha = document.querySelector('#inputOpacity').value / 100;
     getPosition(event);
     ctx.lineTo(coord.x, coord.y);
     ctx.stroke();
@@ -81,4 +83,9 @@ function clearArea() {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
+function undo() {
 
+}
+function redo() {
+    
+}
