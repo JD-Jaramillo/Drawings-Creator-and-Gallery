@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="1.3.0/css/line-awesome.css">
     <link rel="stylesheet" href="styles.css">
+    
     <title>Canvas</title>
 </head>
 
@@ -21,24 +22,24 @@
     </div>
     <container class="canvaslay">
         <section id="toolbar">
-            <div class="type">
-                <input type="radio" class="tool" id="pen" checked>
+            <div class="type" id="draw">
+                <input type="radio" name="tool" class="tool" id="pen" value="0" checked>
                 <label for="pen">
                     <i class="las la-pen"></i>
                 </label>
-                <input type="radio" class="tool" id="brush">
+                <input type="radio" name="tool" class="tool" id="brush" value="1">
                 <label for="brush">
                     <i class="las la-paint-brush"></i>
                 </label>
-                <input type="radio" class="tool" id="bucket">
+                <input type="radio" name="tool" class="tool" id="bucket" value="2">
                 <label for="bucket">
                     <i class="las la-fill-drip"></i>
                 </label>
-                <input type="radio" class="tool" id="eraser">
+                <input type="radio" name="tool" class="tool" id="eraser" value="3">
                 <label for="eraser">
                     <i class="las la-eraser"></i>
                 </label>
-                <input type="radio" class="tool" id="text">
+                <input type="radio" name="tool" class="tool" id="text" value="4">
                 <label for="text">
                     <i class="las la-text-width"></i>
                 </label>
@@ -52,11 +53,12 @@
             <p>Flow</p>
             <input type="range" class="linealt" min="0" max="100" value="100" id="inputFlow">
             <p>Color</p>
-            <input type="color" value="#0000000" id="selColor" class="linealt">
+            <input type="color" value="#000000" id="selColor" class="linealt">
         </section>
         <canvas id="canvas" width="800" Height="500"></canvas>
     </container>
 </body>
+
 <script src="script.js"></script>
 
 </html>
