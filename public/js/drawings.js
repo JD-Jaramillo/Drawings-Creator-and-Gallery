@@ -2,9 +2,9 @@ const newFormHandler = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector('#drawing-name').value.trim();
-  const description = document.querySelector('#project-desc').value.trim();
+  const description = document.querySelector('#drawing-desc').value.trim();
 
-  if (name && needed_funding && description) {
+  if (name && description) {
     const response = await fetch(`/api/drawings`, {
       method: 'POST',
       body: JSON.stringify({ name, description }),
