@@ -48,8 +48,7 @@ function draw() {
         ctx.fillStyle = color;
         ctx.fill();
     } else if (choice ="eraser") {
-        ctx.globalCompositeOperation = 'destination-out';
-        ctx.beginPath();
+        ctx.globalCompositeOperation = "destination-out";
         ctx.arc(x, y, 10, 0, 2 * Math.PI);
         ctx.fill();
         ctx.lineWidth = size;
@@ -60,7 +59,7 @@ function draw() {
         ctx.font = "${size}px Verdana";
         ctx.strokeText();
         ctx.strokeStyle = color;
-    }
+    } else (console.log("error"))
 
 }
 function stopPainting() {
