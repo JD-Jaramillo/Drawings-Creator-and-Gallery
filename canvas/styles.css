@@ -8,3 +8,29 @@
 p {
     margin-right: 1%;
 }
+.action {
+  height:50px;
+  display:flex;
+  align-items:center;
+  background:rgb(150, 143, 143);
+  padding:0px 10px;
+  font-weight:600;
+  color:rgb(245, 240, 240);
+}
+.type input {
+    display:none;
+}
+.type input:checked + label {
+    background:#111;
+    color:#eee;
+    border-radius:50%;
+}
+label {
+  width:30px;
+  height:30px;
+  display:inline-block;
+  text-align:center;
+  line-height:30px;
+  margin:0px 2px;
+  cursor:pointer;
+}

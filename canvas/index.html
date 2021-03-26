@@ -13,8 +13,7 @@
 <body>
     <canvas id="canvas" width="800" Height="500"></canvas>
     <section id="toolbar">
-        <p>Line Width</p>
-        <input type="number" class="tool" min="1" max="50" value="5" id="inputWidth">
+    <div class="type">
         <input type="radio" class="tool" id="pen" checked>
         <label for="pen">
             <i class="las la-pen"></i>
@@ -35,9 +34,13 @@
         <label for="text">
             <i class="las la-text-width"></i>
         </label>
-        <input type="color" value="#0000000" id="selColor" class="tool">
-        </input>
-        <button id="clear" class="tool" onclick="clearArea();return false;">Clear Canvas</button>
+    </div>
+        <p>Line Width</p>
+        <input type="number" class="linealt" min="1" max="50" value="5" id="inputWidth">
+        <input type="color" value="#0000000" id="selColor" class="linealt">
+                <button id="save" class="action">Save</button>
+        <button id="clear" class="action" onclick="clearArea();return false;">Clear Canvas</button>
+        
     </section>
 </body>
 <script src="script.js"></script>
