@@ -1,0 +1,80 @@
+header, .project:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+
+.no-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #1b89bc;
+  text-decoration: none;
+  font-size: 100%;
+}
+
+.no-button:hover {
+  color: #065b83;
+  text-decoration: underline;
+}
+body {
+  background-color: #121212;
+}
+
+#canvas {
+  border: 5px solid black;
+  background-color: #eee;
+}
+#toolbar {
+  display: flex;
+  flex-direction: column;
+}
+.mininav { 
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+  background-color: #414141;
+}
+.canvaslay {
+  display: flex;
+  flex-direction: row;
+  background-color: #414141;
+}
+p {
+  margin-left: 5px;
+}
+.action {
+height:50px;
+display:flex;
+align-items:center;
+background:rgb(150, 143, 143);
+padding:0px 10px;
+font-weight:600;
+color:rgb(245, 240, 240);
+margin-right: 5px;
+border-radius: 10%;
+padding:5px 10px;
+cursor:pointer;
+}
+.type {
+  margin-top: 5px;
+}
+.type input {
+  display:none;
+}
+.type input:checked + label {
+  background:#111;
+  color:#eee;
+  border-radius:50%;
+}
+label {
+width:30px;
+height:30px;
+display:inline-block;
+text-align:center;
+line-height:30px;
+margin:0px 2px;
+cursor:pointer;
+}
+.linealt {
+  margin-left: 5px;
+}

@@ -1,0 +1,17 @@
+[
+    {
+        "name": "My first drawing",
+        "description": "A drawing of my favorite place in Europe",
+        "image": ""
+    },
+    {
+        "name": "A drawing of my car",
+        "description": "My best attempt at drawing my car",
+        "image": ""
+    },
+    {
+        "name": "Another day, another drawing",
+        "description": "Just another drawing",
+        "image": ""
+    }
+]
