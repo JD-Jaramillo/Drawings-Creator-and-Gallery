@@ -70,4 +70,6 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+router.get('/canvas', withAuth, (req, res) => res.render('drawing', { ...user, logged_in: true }))
+
 module.exports = router;
