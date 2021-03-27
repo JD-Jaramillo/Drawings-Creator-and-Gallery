@@ -7,7 +7,7 @@ router.post('/', async (req, res) => {
             ...req.body,
             user_id: req.session.user_id,
         });
-
+        res.render('drawing');
         res.status(200).json(newDrawing);
     } catch (err) {
         res.status(400).json(err);
