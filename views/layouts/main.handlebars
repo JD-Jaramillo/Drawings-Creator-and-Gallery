@@ -10,29 +10,31 @@
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <a class="no-button" href="/">Drawings Creator</a>
-      </h1>
-      <nav>
-        <span><a class="no-button" href="/">Home</a></span> |
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a class="no-button" href="/dashboard">Dashboard</a> |
-        <button class="no-button" id="logout">Logout</button>
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
-      <p>Thanks for drawing with us!</p>
-    </footer>
+  <div class="page-container flex-column justify-space-around">
+    <div id="content-wrapper">
+      <header class="display-flex justify-space-between align-center p-2">
+        <h1>
+          <a class="no-button" href="/">Drawings Creator</a>
+        </h1>
+        <nav>
+          <span><a class="no-button" href="/">Home</a></span> |
+          <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+          <a class="no-button" href="/dashboard">Dashboard</a> |
+          <button class="no-button" id="logout">Logout</button>
+          {{else}}
+          <a href="/login">Login</a>
+          {{/if}}
+        </nav>
+      </header>
+      <main class="container container-fluid mt-5">
+        <!-- Render the sub layout -->
+        {{{ body }}}
+      </main>
+      <footer id="footer">
+        <p>Thanks for drawing with us!</p>
+      </footer>
+    </div>
   </div>
 
   <!-- Render script for logged in users only -->
