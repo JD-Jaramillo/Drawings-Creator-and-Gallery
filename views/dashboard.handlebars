@@ -6,11 +6,18 @@
 
     <form class="new-drawing-form">
       <div>
-        <label for="drawing-title">Drawing name: </label>
-        <input type="text" id="drawing-title" name="drawing-title" />
+        <label for="drawing-title"> Title:
+          <input type="text" id="drawing-title" name="drawing-title" />
+        </label>
       </div>
-
-      <button type="submit" class="btn">Create</button>
+      <div>
+        <label for="drawing-description"> Drescription:
+          <input type="text" id="drawing-description" name="drawing-description" />
+        </label>
+      </div>
+      <div>
+        <button type="submit" class="btn">Create</button>
+      </div>
     </form>
   </div>
 
@@ -34,4 +41,4 @@
 {{/if}}
 
 <!--Script to add a post-->
-<script src="/javascript/add-post.js"></script>
+<script src="/js/add-drawing.js"></script>
