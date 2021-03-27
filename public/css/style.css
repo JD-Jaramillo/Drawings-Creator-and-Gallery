@@ -96,3 +96,48 @@ cursor:pointer;
   height: 2.5rem;
   text-align: center;
 }
+h2 {
+  text-align: center;
+  color: #eee;
+}
+.labels {
+  color: #eee;
+  margin-right: 2%;
+}
+.row {
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 5%;
+  justify-content: center;
+}
+.subbtn {
+  display: flex;
+  margin-top: 5%;
+  justify-content: center;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.login {
+  padding: 2%;
+  background-color: #414141;
+  margin-right: 10%;
+  border-radius: 10%;
+  border-color: #eee;
+  border-width: 2px;
+  border-style: outset;
+}
+.signup {
+  padding: 2%;
+  margin-right: 10%;
+  border-radius: 10%;
+  background-color: #414141;
+  border-color: #eee;
+  border-width: 2px;
+  border-style: outset;
+}
+.btnplc {
+  justify-content: center;
+  display: flex;
+  -ms-flex-align: center;
+}
