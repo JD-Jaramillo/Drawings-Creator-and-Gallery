@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Drawing } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const userData = await User.findAll({
             attributes: { exclude: ['password'] },
@@ -20,7 +20,7 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-router.get('/drawing/:id', async (req, res) => {
+router.get('/drawing/:id', withAuth, async (req, res) => {
     try {
         const drawingData = await Drawing.findByPk(req.params.id, {
             include: [
@@ -43,25 +43,8 @@ router.get('/drawing/:id', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/user', withAuth, async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
     try {
-      // Find the logged in user based on the session ID
-      const userData = await User.findByPk(req.session.user_id, {
-        attributes: { exclude: ['password'] },
-        include: [{ model: User }],
-      });
-  
-      const user = userData.get({ plain: true });
-  
-      res.render('user', {
-        ...user,
-        logged_in: true
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-=======
         // Find the logged in user based on the session ID
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
@@ -70,7 +53,7 @@ router.get('/user', withAuth, async (req, res) => {
 
         const user = userData.get({ plain: true });
 
-        res.render('user', {
+        res.render('profile', {
             ...user,
             logged_in: true
         });
@@ -81,10 +64,9 @@ router.get('/user', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/');
+        res.redirect('/dashboard');
         return;
     }
-
     res.render('login');
 });
 

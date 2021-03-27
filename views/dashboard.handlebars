@@ -1,0 +1,32 @@
+<section class="row">
+  <div class="column">
+    <h2>Create New Drawing</h2>
+
+    <form class="new-drawing-form">
+      <div>
+        <label for="drawing-title">Drawing name: </label>
+        <input type="text" id="drawing-title" name="drawing-title" />
+      </div>
+
+      <button type="submit" class="btn">Create</button>
+    </form>
+  </div>
+
+</section>
+
+{{#if drawing.length}}
+<section>
+  <h2>Your Drawings</h2>
+  <ol>
+    {{#each drawings as |drawings|}}
+    <li>
+      {{!-- {{> post-info post}} --}}
+      <a href="/dashboard/edit/{{drawing.id}}" class="edit-link">Edit drawing</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
+
+<!--Script to add a post-->
+<script src="/javascript/add-post.js"></script>
