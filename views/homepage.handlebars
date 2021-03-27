@@ -1,16 +1,15 @@
-{{#each drawing as |drawing| }}
+{{#each drawings as |drawing| }}
 <div class="row mb-4 project">
     <div class="col-md-5">
         <h2>
-            <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-            <a href="/drawing/{{drawing.id}}">{{drawing.name}}</a>
+            <a href="/drawing/{{drawings.id}}">{{drawings.name}}</a>
         </h2>
 
 
     </div>
     <div class="col-md-7">
         <p>
-            {{drawing.description}}
+            {{drawings.description}}
         </p>
     </div>
 </div>
