@@ -15,6 +15,7 @@ body {
     flex-direction: row;
     margin-bottom: 5px;
     background-color: #414141;
+    padding: 5px;
 }
 .canvaslay {
     display: flex;
@@ -22,13 +23,14 @@ body {
     background-color: #414141;
 }
 p {
+    color: #eee;
     margin-left: 5px;
 }
 .action {
   height:50px;
   display:flex;
   align-items:center;
-  background:rgb(150, 143, 143);
+  background:#232323;
   padding:0px 10px;
   font-weight:600;
   color:rgb(245, 240, 240);
@@ -49,14 +51,34 @@ p {
     border-radius:50%;
 }
 label {
-  width:30px;
-  height:30px;
+  width:40px;
+  height:40px;
   display:inline-block;
   text-align:center;
-  line-height:30px;
+  line-height:40px;
   margin:0px 2px;
   cursor:pointer;
 }
 .linealt {
     margin-left: 5px;
+}
+#selColor {
+    border: none;
+    width: 100px;
+    height: 100px;
+    background-color: #232323;
+}
+.unrebtn {
+    margin-top: 15px;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+}
+.leftbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.linealt:hover {
+    cursor:pointer;
 }
