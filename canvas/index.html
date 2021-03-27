@@ -45,10 +45,10 @@
                 </label>
             </div>
             <section class="leftbar">
-            <p>Width</p>
-            <input type="range" class="linealt" min="1" max="50" value="5" id="inputWidth">
-            <p>Opacity</p>
-            <input type="range" class="linealt" min="0" max="100" value="100" id="inputOpacity">
+            <p>Width <span id="widthOut"></span></p>
+            <input type="range" class="linealt" min="1" max="50" value="5" id="inputWidth" oninput="widthVal(value)">
+            <p>Opacity <sapn id="opacityOut"></span></p>
+            <input type="range" class="linealt" min="0" max="100" value="100" id="inputOpacity" oninput="opacityVal(value)"> 
             <p>Color</p>
             <input type="color" value="#000000" id="selColor" class="linealt">
             <div class="unrebtn">

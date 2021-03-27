@@ -4,6 +4,14 @@ window.addEventListener('load', () => {
     document.addEventListener('mouseup', stopPainting);
     document.addEventListener('mousemove', sketch);
 });
+var rangeWidth = document.getElementById("inputWidth");
+var outputWidth = document.getElementById("widthOut");
+outputWidth.innerHTML = rangeWidth.value;
+
+var rangeOpacity = document.getElementById("inputOpacity");
+var outputOpacity = document.getElementById("opacityOut");
+outputOpacity.innerHTML = rangeOpacity.value;
+
 const canvas = document.querySelector('#canvas')
 const ctx = canvas.getContext('2d');
 let coord = { x: 0, y: 0 };
@@ -87,5 +95,5 @@ function undo() {
 
 }
 function redo() {
-    
+
 }
