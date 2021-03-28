@@ -7,11 +7,11 @@
 
       <form class="new-drawing-form">
         <div>
-          <label for="drawing-title"> Title:
+          <label for="drawing-title" class="divlabel"> Title:
             <input type="text" id="drawing-title" name="drawing-title" />
           </label>
         </div>
-        <div>
+        <div class="divlabel">
           <label for="drawing-description"> Drescription:
             <input type="text" id="drawing-description" name="drawing-description" />
           </label>
@@ -28,11 +28,11 @@
   <section class="row">
     <div class="your-drawings createnew">
       <h2>{{drawings.0.user.name}}'s Drawings</h2>
-      <ul>
+      <ul class="divlabel">
         {{#each drawings as |drawings|}}
         <li>
           {{!-- {{> post-info post}} --}}
-          <a class="userdrawings" href="#modal-full-{{drawings.name}}" uk-toggle>{{drawings.name}}</a>
+          <a class="userdrawings" href="#modal-full-{{drawings.name}}" uk-toggle><i class="las la-palette"></i> {{drawings.name}}</a>
 
           <div id="modal-full-{{drawings.name}}" class="uk-modal-full" style="background-color: #121212;" uk-modal>
             <div class="uk-modal-dialog dashview">
@@ -49,6 +49,11 @@
               <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
               <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
                 <div uk-height-viewport>
+                  <continaer class="dashpic">                    
+                  <img class="imgborder" src="https://plchldr.co/i/500x250">
+                  </continaer>
+                </div>
+                <div class="uk-padding-large">
                   <continaer class="dashmodal">
                     <p class="dashspacing">{{drawings.description}}</p>
                     <div class="btns3">
@@ -57,9 +62,6 @@
                       <button class="action subbtn dashbtn">Downlaod</button>
                     </div>
                   </continaer>
-                </div>
-                <div class="uk-padding-large">
-                  <img src="https://plchldr.co/i/500x250">
                 </div>
               </div>
             </div>
