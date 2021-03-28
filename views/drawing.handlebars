@@ -1,53 +1,67 @@
-
-
-    <div class="mininav">
-        <button id="new" class="action">New</button>
-        <button id="open" class="action">Open</button>
-        <button id="save" class="action">Save</button>
-        <button id="saveAs" class="action">Save As</button>
-        <button id="clear" class="action" onclick="clearArea();return false;">Clear Canvas</button>
-        <button id="delete" class="action">Delete</button>
+<div class="canvmodal">
+<a href="#modal-group-1" uk-toggle><button class="action">Start Doodling</button></a>
+</div>
+<div id="modal-group-1" uk-modal>
+    <div class="uk-modal-dialog">
+        <p>Name Creatino</p>
+        <p>Description</p>
+        <a href="#modal-full" uk-toggle>Next</a>
     </div>
-    <container class="canvaslay">
-        <section id="toolbar">
-            <div class="type" id="draw">
-                <input type="radio" name="tool" class="tool" id="pen" value="0" checked>
-                <label for="pen">
-                    <i class="las la-pen"></i>
-                </label>
-                <input type="radio" name="tool" class="tool" id="brush" value="1">
-                <label for="brush">
-                    <i class="las la-paint-brush"></i>
-                </label>
-                <input type="radio" name="tool" class="tool" id="bucket" value="2">
-                <label for="bucket">
-                    <i class="las la-fill-drip"></i>
-                </label>
-                <input type="radio" name="tool" class="tool" id="eraser" value="3">
-                <label for="eraser">
-                    <i class="las la-eraser"></i>
-                </label>
-                <input type="radio" name="tool" class="tool" id="text" value="4">
-                <label for="text">
-                    <i class="las la-text-width"></i>
-                </label>
-            </div>
-            <section class="leftbar">
-            <p>Width <span id="widthOut"></span></p>
-            <input type="range" class="linealt" min="1" max="50" value="5" id="inputWidth" oninput="widthVal(value)">
-            <p>Opacity <sapn id="opacityOut"></span></p>
-            <input type="range" class="linealt" min="0" max="100" value="100" id="inputOpacity" oninput="opacityVal(value)"> 
-            <p>Color</p>
-            <input type="color" value="#000000" id="selColor" class="linealt">
-            <div class="unrebtn">
-            <button id="undo" class="action">Undo</button>
-            <button id="redo" class="action">Redo</button>
-            </div>
+</div>
+</div>
+
+<div id="modal-full" class="uk-modal-full" uk-modal>
+    <div class="uk-modal-body">
+        <div class="mininav">
+            <button id="new" class="action">New</button>
+            <button id="open" class="action">Open</button>
+            <button id="save" class="action">Save</button>
+            <button id="saveAs" class="action">Save As</button>
+            <button id="clear" class="action" onclick="clearArea();return false;">Clear Canvas</button>
+            <button id="delete" class="action">Delete</button>
+        </div>
+        <container class="canvaslay">
+            <section id="toolbar">
+                <div class="type" id="draw">
+                    <input type="radio" name="tool" class="tool" id="pen" value="0" checked>
+                    <label for="pen">
+                        <i class="las la-pen"></i>
+                    </label>
+                    <input type="radio" name="tool" class="tool" id="brush" value="1">
+                    <label for="brush">
+                        <i class="las la-paint-brush"></i>
+                    </label>
+                    <input type="radio" name="tool" class="tool" id="bucket" value="2">
+                    <label for="bucket">
+                        <i class="las la-fill-drip"></i>
+                    </label>
+                    <input type="radio" name="tool" class="tool" id="eraser" value="3">
+                    <label for="eraser">
+                        <i class="las la-eraser"></i>
+                    </label>
+                    <input type="radio" name="tool" class="tool" id="text" value="4">
+                    <label for="text">
+                        <i class="las la-text-width"></i>
+                    </label>
+                </div>
+                <section class="leftbar">
+                    <p>Width <span id="widthOut"></span></p>
+                    <input type="range" class="linealt" min="1" max="50" value="5" id="inputWidth"
+                        oninput="widthVal(value)">
+                    <p>Opacity <sapn id="opacityOut"></span></p>
+                    <input type="range" class="linealt" min="0" max="100" value="100" id="inputOpacity"
+                        oninput="opacityVal(value)">
+                    <p>Color</p>
+                    <input type="color" value="#000000" id="selColor" class="linealt">
+                    <div class="unrebtn">
+                        <button id="undo" class="action">Undo</button>
+                        <button id="redo" class="action">Redo</button>
+                    </div>
+                </section>
             </section>
-        </section>
-        <canvas id="canvas" width="800" Height="500"></canvas>
-    </container>
-
-
+            <canvas id="canvas" width="800" Height="500"></canvas>
+        </container>
+    </div>
+</div>
+</div>
 <script src="../js/canvas.js"></script>
-

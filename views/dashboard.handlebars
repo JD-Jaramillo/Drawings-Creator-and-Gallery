@@ -30,13 +30,31 @@
     {{#each drawings as |drawings|}}
     <li>
       {{!-- {{> post-info post}} --}}
-      <a href="/dashboard/edit/{{drawings.id}}" class="edit-link">{{drawings.name}}</a>
+      <a class="edit-link" href="#modal-full" uk-toggle>{{drawings.name}}</a>
+
+      <div id="modal-full" class="uk-modal-full" uk-modal>
+        <div class="uk-modal-dialog dashview">
+          <h2 class="uk-modal-title">{{drawings.name}}</h2>
+          <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+          <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
+            <div class="uk-background-cover" uk-height-viewport>
+              <p>Options:
+                <button class="action">Edit</button>
+                <button class="action" data-id="{{drawings.id}}">DELETE</button>
+                <button class="action">Downlaod</button>
+              </p>
+            </div>
+            <div class="uk-padding-large">
+              <img src="https://plchldr.co/i/500x250">
+            </div>
+          </div>
+        </div>
+      </div>
+
     </li>
-    <div class="col-md-4">
-      <button class="action" data-id="{{drawings.id}}">DELETE</button>
-    </div>
     {{/each}}
   </ul>
+
 </section>
 {{/if}}
 

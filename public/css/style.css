@@ -78,6 +78,26 @@ cursor:pointer;
 .linealt {
   margin-left: 5px;
 }
+#selColor {
+  border: none;
+  width: 100px;
+  height: 100px;
+  background-color: #232323;
+}
+.unrebtn {
+  margin-top: 15px;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: row;
+}
+.leftbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.linealt:hover {
+  cursor:pointer;
+}
 
 .page-container {
   position: relative;
@@ -140,4 +160,45 @@ h2 {
   justify-content: center;
   display: flex;
   -ms-flex-align: center;
+}
+.canvmodal {
+  display: flex;
+  margin-top: 10px;
+  align-self: center;
+  justify-content: center;
+}
+.dashview {
+  background-color: #414141;
+  color: #eee;
+}
+li {
+  list-style-type: square;
+}
+.slideshow {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+.slideshowwrap {
+  width: 100%;
+  margin: 0 auto;
+  height: 300px;
+}
+
+@media only screen and (min-width: 768px) {
+  .slideshowwrap {
+    width: 50%;
+    
+  }
+}
+.uk-slideshow-items {
+  width: 100% !important;
+  min-height: auto;
+}
+@media only screen and (min-width: 768px) {
+  .uk-slideshow-items {
+    width: 500px !important;
+    height: 300px !important;
+    margin: 0 auto;    
+  }
 }
