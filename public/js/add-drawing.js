@@ -1,5 +1,5 @@
 // New drawing Form Handler
-const newFormHandler = async (event) => {
+const newDrawingHandler = async (event) => {
   event.preventDefault();
 
   // Get the drawing title and drawing text from the form
@@ -26,5 +26,22 @@ const newFormHandler = async (event) => {
   }
 };
 
+const delButtonHandler = async (event) => {
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+    const response = await fetch(`/api/drawing/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('Failed to delete project');
+    }
+  }
+};
+
 // Event Listener for the new drawing create button
-document.querySelector('.new-drawing-form').addEventListener('submit', newFormHandler);
+document.querySelector('.new-drawing-form').addEventListener('submit', newDrawingHandler);
+// Event Listener for the drawing delete button
+document.querySelector('.your-drawings').addEventListener('submit', delButtonHandler);
