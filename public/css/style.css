@@ -163,12 +163,12 @@ h2 {
 }
 .canvmodal {
   display: flex;
-  margin-top: 10px;
+  margin-top: 10%;
   align-self: center;
   justify-content: center;
 }
 .dashview {
-  background-color: #414141;
+  background-color: #121212;
   color: #eee;
 }
 li {
@@ -212,13 +212,47 @@ li {
   font-size: 100%;
 }
 .createnew {
+  color: #eee;
   padding: 2%;
   background-color: #414141;
   border-radius: 10%;
   border-color: #eee;
   border-width: 2px;
   border-style: outset;
+  display: flex;
+  flex-direction: column;
+}
+.userdrawings {
+  color: #eee;
+  text-decoration: none;
+  cursor: pointer;
+  
+}
+.dash {
+  display: flex;
+  flex-direction: column;
+}
+.dashmodal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10%;
+  border-color: #eee;
+  border-style: outset;
+  border-width: 2px;
+  background-color: #414141;
+  margin-left: 2%
+}
+.uk-grid>*>:last-child {
+  margin-bottom: 0;
+  border-radius: 10%;
+  border-color: #eee;
+  border-style: outset;
+  border-width: 2px;
+}
+.btns3 {
+  margin: 5%;
 }
 .dashbtn {
-  margin-top: 5px;
+  width: 10em;
 }

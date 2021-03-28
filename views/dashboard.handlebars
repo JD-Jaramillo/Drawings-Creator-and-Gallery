@@ -1,4 +1,5 @@
-    <h2>Welcome to Doodle!</h2>
+    <h2>Welcome to Doodle Node!</h2>
+  <continer class="dash">
 <section class="row">
   <div class="column createnew">
     {{log drawings}}
@@ -15,8 +16,8 @@
           <input type="text" id="drawing-description" name="drawing-description" />
         </label>
       </div>
-      <div>
-        <button type="submit" class="action dashbtn">Create</button>
+      <div class="btnplc">
+        <button type="submit" class="action subbtn">Create</button>
       </div>
     </form>
   </div>
@@ -24,25 +25,29 @@
 </section>
 {{log drawings}}
 {{#if drawings}}
-<section class="your-drawings">
-  <h2>Your Drawings</h2>
+<section class="row">
+<div class="your-drawings createnew">
+  <h2>{{drawings.0.user.name}}'s Drawings</h2>
   <ul>
     {{#each drawings as |drawings|}}
     <li>
       {{!-- {{> post-info post}} --}}
-      <a class="edit-link" href="#modal-full" uk-toggle>{{drawings.name}}</a>
+      <a class="userdrawings" href="#modal-full" uk-toggle>{{drawings.name}}</a>
 
       <div id="modal-full" class="uk-modal-full" uk-modal>
         <div class="uk-modal-dialog dashview">
           <h2 class="uk-modal-title">{{drawings.name}}</h2>
           <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
           <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
-            <div class="uk-background-cover" uk-height-viewport>
-              <p>Options:
-                <button class="action">Edit</button>
-                <button class="action" data-id="{{drawings.id}}">DELETE</button>
-                <button class="action">Downlaod</button>
-              </p>
+            <div uk-height-viewport>
+              <continaer class="dashmodal">
+              <p>{{drawings.description}}</p>
+                <div class="btns3">
+                <button class="action subbtn dashbtn">Edit</button>
+                <button class="action subbtn dashbtn" data-id="{{drawings.id}}">DELETE</button>
+                <button class="action subbtn dashbtn">Downlaod</button>
+                </div>
+              </continaer>
             </div>
             <div class="uk-padding-large">
               <img src="https://plchldr.co/i/500x250">
@@ -54,8 +59,9 @@
     </li>
     {{/each}}
   </ul>
-
+</div>
 </section>
+</continer>
 {{/if}}
 
 <!--Script to add a post-->
