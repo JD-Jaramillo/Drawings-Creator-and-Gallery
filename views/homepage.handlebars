@@ -1,16 +1,27 @@
-{{#each drawings as |drawing| }}
-<div class="row mb-4 project">
-    <div class="col-md-5">
-        <h2>
-            <a href="/drawing/{{drawings.id}}">{{drawings.name}}</a>
-        </h2>
+<section class="slideshow">
+    <div class="slideshowwrap">
+        <h2>Selected Works</h2>
+        <div uk-slideshow="autoplay: true autoplay-interval: 6000">
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow>
 
+                <ul class="uk-slideshow-items">
+                    <li>
+                        <img src="https://picsum.photos/seed/picsum/800/500" alt="" uk-cover>
+                    </li>
+                    <li>
+                        <img src="https://picsum.photos/800/500?grayscale" alt="" uk-cover>
+                    </li>
+                    <li>
+                        <img src="https://picsum.photos/seed/picsum/800/500" alt="" uk-cover>
+                    </li>
+                </ul>
 
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+                    uk-slideshow-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                    uk-slideshow-item="next"></a>
+
+            </div>
+        </div>
     </div>
-    <div class="col-md-7">
-        <p>
-            {{drawings.description}}
-        </p>
-    </div>
-</div>
-{{/each}}
+</section>

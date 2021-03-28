@@ -6,33 +6,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drawings Creator and Gallery</title>
   <link rel="stylesheet" href="/css/1.3.0/css/line-awesome.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/css/uikit.min.css" />
   <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit.min.js"></script>
 </head>
 
 <body>
+  <style>
+  body {
+    background-image: url('doodle_node.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: center;
+  }
+  </style>
   <div class="page-container flex-column justify-space-around">
     <div id="content-wrapper">
       <header class="display-flex justify-space-between align-center p-2">
         <h1>
-          <a class="no-button" href="/">Drawings Creator</a>
+          <a class="no-button" href="/homepage">Doodle Node</a>
         </h1>
         <nav>
           <span><a class="no-button" href="/">Home</a></span> |
           <!-- Conditionally render login or logout links -->
           {{#if logged_in}}
           <a class="no-button" href="/dashboard">Dashboard</a> |
-          <button class="no-button" id="logout">Logout</button>
+          <button class="no-button" id="logout">Logout {{user.name}}</button>
           {{else}}
           <a href="/login">Login</a>
           {{/if}}
         </nav>
       </header>
-      <main class="container container-fluid mt-5">
+      <main class="">
         <!-- Render the sub layout -->
         {{{ body }}}
       </main>
       <footer id="footer">
-        <p class="no-button">Thanks for drawing with us!</p>
+        <p class="footbtn">Thanks for drawing with us!</p>
       </footer>
     </div>
   </div>

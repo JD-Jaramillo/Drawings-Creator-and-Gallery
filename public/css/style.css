@@ -16,9 +16,6 @@ header, .project:not(:last-child) {
   color: #065b83;
   text-decoration: underline;
 }
-body {
-  background-color: #121212;
-}
 
 #canvas {
   border: 5px solid black;
@@ -78,6 +75,26 @@ cursor:pointer;
 .linealt {
   margin-left: 5px;
 }
+#selColor {
+  border: none;
+  width: 100px;
+  height: 100px;
+  background-color: #232323;
+}
+.unrebtn {
+  margin-top: 15px;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: row;
+}
+.leftbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.linealt:hover {
+  cursor:pointer;
+}
 
 .page-container {
   position: relative;
@@ -95,4 +112,150 @@ cursor:pointer;
   width: 100%;
   height: 2.5rem;
   text-align: center;
+}
+h2 {
+  text-align: center;
+  color: #eee;
+}
+.labels {
+  color: #eee;
+  margin-right: 2%;
+}
+.row {
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 5%;
+  justify-content: center;
+}
+.subbtn {
+  display: flex;
+  margin-top: 5%;
+  justify-content: center;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.login {
+  padding: 2%;
+  background-color: #414141;
+  margin-right: 10%;
+  border-radius: 10%;
+  border-color: #eee;
+  border-width: 2px;
+  border-style: outset;
+}
+.signup {
+  padding: 2%;
+  margin-right: 10%;
+  border-radius: 10%;
+  background-color: #414141;
+  border-color: #eee;
+  border-width: 2px;
+  border-style: outset;
+}
+.btnplc {
+  justify-content: center;
+  display: flex;
+  -ms-flex-align: center;
+}
+.canvmodal {
+  display: flex;
+  margin-top: 10%;
+  align-self: center;
+  justify-content: center;
+}
+.dashview {
+  color: #eee;
+}
+li {
+  list-style-type: square;
+}
+.slideshow {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+.slideshowwrap {
+  width: 100%;
+  margin: 0 auto;
+  height: 300px;
+}
+
+@media only screen and (min-width: 768px) {
+  .slideshowwrap {
+    width: 50%;
+    
+  }
+}
+.uk-slideshow-items {
+  width: 100% !important;
+  min-height: auto;
+}
+@media only screen and (min-width: 768px) {
+  .uk-slideshow-items {
+    width: 500px !important;
+    height: 300px !important;
+    margin: 0 auto;    
+  }
+}
+.footbtn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: default;
+  color: #1b89bc;
+  text-decoration: none;
+  font-size: 100%;
+}
+.createnew {
+  color: #eee;
+  padding: 2%;
+  background-color: #414141;
+  border-radius: 10%;
+  border-color: #eee;
+  border-width: 2px;
+  border-style: outset;
+  display: flex;
+  flex-direction: column;
+}
+.userdrawings {
+  color: #eee;
+  text-decoration: none;
+  cursor: pointer;
+  
+}
+.dash {
+  display: flex;
+  flex-direction: column;
+}
+.dashmodal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10%;
+  border-color: #eee;
+  border-style: outset;
+  border-width: 2px;
+  background-color: #414141;
+  margin-left: 2%
+}
+.uk-grid>*>:last-child {
+  margin-bottom: 0;
+  border-radius: 10%;
+  border-color: #eee;
+  border-style: outset;
+  border-width: 2px;
+}
+.btns3 {
+  margin: 5%;
+}
+.dashbtn {
+  width: 10em;
+}
+.canvresp {
+  width: 100%
+}
+.dashspacing {
+  margin-top: 5%;
+  font-size: 25px;
 }
