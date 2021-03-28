@@ -238,7 +238,14 @@ li {
   border-style: outset;
   border-width: 2px;
   background-color: #414141;
-  margin-left: 2%
+  margin-right: 2%
+}
+.dashpic {
+  margin-left: 5%;
+  margin-top: 10%;
+}
+.imgborder {
+  border-radius: 10%;
 }
 .uk-grid>*>:last-child {
   margin-bottom: 0;
