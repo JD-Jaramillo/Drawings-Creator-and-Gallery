@@ -202,3 +202,23 @@ li {
     margin: 0 auto;    
   }
 }
+.footbtn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: default;
+  color: #1b89bc;
+  text-decoration: none;
+  font-size: 100%;
+}
+.createnew {
+  padding: 2%;
+  background-color: #414141;
+  border-radius: 10%;
+  border-color: #eee;
+  border-width: 2px;
+  border-style: outset;
+}
+.dashbtn {
+  margin-top: 5px;
+}
