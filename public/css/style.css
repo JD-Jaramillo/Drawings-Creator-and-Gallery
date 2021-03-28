@@ -16,9 +16,6 @@ header, .project:not(:last-child) {
   color: #065b83;
   text-decoration: underline;
 }
-body {
-  background-color: #121212;
-}
 
 #canvas {
   border: 5px solid black;
@@ -168,7 +165,6 @@ h2 {
   justify-content: center;
 }
 .dashview {
-  background-color: #121212;
   color: #eee;
 }
 li {
@@ -255,4 +251,7 @@ li {
 }
 .dashbtn {
   width: 10em;
+}
+.canvresp {
+  width: 100%
 }

@@ -1,66 +1,75 @@
-    <h2>Welcome to Doodle Node!</h2>
-  <continer class="dash">
-<section class="row">
-  <div class="column createnew">
-    {{log drawings}}
-    <h2>Create New Drawing</h2>
+<h2>Welcome to Doodle Node!</h2>
+<continer class="dash">
+  <section class="row">
+    <div class="column createnew">
+      {{log drawings}}
+      <h2>Create New Drawing</h2>
 
-    <form class="new-drawing-form">
-      <div>
-        <label for="drawing-title"> Title:
-          <input type="text" id="drawing-title" name="drawing-title" />
-        </label>
-      </div>
-      <div>
-        <label for="drawing-description"> Drescription:
-          <input type="text" id="drawing-description" name="drawing-description" />
-        </label>
-      </div>
-      <div class="btnplc">
-        <button type="submit" class="action subbtn">Create</button>
-      </div>
-    </form>
-  </div>
+      <form class="new-drawing-form">
+        <div>
+          <label for="drawing-title"> Title:
+            <input type="text" id="drawing-title" name="drawing-title" />
+          </label>
+        </div>
+        <div>
+          <label for="drawing-description"> Drescription:
+            <input type="text" id="drawing-description" name="drawing-description" />
+          </label>
+        </div>
+        <div class="btnplc">
+          <button type="submit" class="action subbtn">Create</button>
+        </div>
+      </form>
+    </div>
 
-</section>
-{{log drawings}}
-{{#if drawings}}
-<section class="row">
-<div class="your-drawings createnew">
-  <h2>{{drawings.0.user.name}}'s Drawings</h2>
-  <ul>
-    {{#each drawings as |drawings|}}
-    <li>
-      {{!-- {{> post-info post}} --}}
-      <a class="userdrawings" href="#modal-full" uk-toggle>{{drawings.name}}</a>
+  </section>
+  {{log drawings}}
+  {{#if drawings}}
+  <section class="row">
+    <div class="your-drawings createnew">
+      <h2>{{drawings.0.user.name}}'s Drawings</h2>
+      <ul>
+        {{#each drawings as |drawings|}}
+        <li>
+          {{!-- {{> post-info post}} --}}
+          <a class="userdrawings" href="#modal-full" uk-toggle>{{drawings.name}}</a>
 
-      <div id="modal-full" class="uk-modal-full" uk-modal>
-        <div class="uk-modal-dialog dashview">
-          <h2 class="uk-modal-title">{{drawings.name}}</h2>
-          <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-          <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
-            <div uk-height-viewport>
-              <continaer class="dashmodal">
-              <p>{{drawings.description}}</p>
-                <div class="btns3">
-                <button class="action subbtn dashbtn">Edit</button>
-                <button class="action subbtn dashbtn" data-id="{{drawings.id}}">DELETE</button>
-                <button class="action subbtn dashbtn">Downlaod</button>
+          <div id="modal-full" class="uk-modal-full" style="background-color: #121212;" uk-modal>
+            <div class="uk-modal-dialog dashview">
+
+              <style>
+                .dashview {
+                  background-image: url('doodle_node.png');
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                }
+              </style>
+
+              <h2 class="uk-modal-title">{{drawings.name}}</h2>
+              <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+              <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
+                <div uk-height-viewport>
+                  <continaer class="dashmodal">
+                    <p>{{drawings.description}}</p>
+                    <div class="btns3">
+                      <button class="action subbtn dashbtn">Edit</button>
+                      <button class="action subbtn dashbtn" data-id="{{drawings.id}}">DELETE</button>
+                      <button class="action subbtn dashbtn">Downlaod</button>
+                    </div>
+                  </continaer>
                 </div>
-              </continaer>
-            </div>
-            <div class="uk-padding-large">
-              <img src="https://plchldr.co/i/500x250">
+                <div class="uk-padding-large">
+                  <img src="https://plchldr.co/i/500x250">
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-    </li>
-    {{/each}}
-  </ul>
-</div>
-</section>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </section>
 </continer>
 {{/if}}
 
