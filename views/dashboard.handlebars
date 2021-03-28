@@ -32,9 +32,9 @@
         {{#each drawings as |drawings|}}
         <li>
           {{!-- {{> post-info post}} --}}
-          <a class="userdrawings" href="#modal-full" uk-toggle>{{drawings.name}}</a>
+          <a class="userdrawings" href="#modal-full-{{drawings.name}}" uk-toggle>{{drawings.name}}</a>
 
-          <div id="modal-full" class="uk-modal-full" style="background-color: #121212;" uk-modal>
+          <div id="modal-full-{{drawings.name}}" class="uk-modal-full" style="background-color: #121212;" uk-modal>
             <div class="uk-modal-dialog dashview">
 
               <style>
@@ -50,7 +50,7 @@
               <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
                 <div uk-height-viewport>
                   <continaer class="dashmodal">
-                    <p>{{drawings.description}}</p>
+                    <p class="dashspacing">{{drawings.description}}</p>
                     <div class="btns3">
                       <button class="action subbtn dashbtn">Edit</button>
                       <button class="action subbtn dashbtn" data-id="{{drawings.id}}">DELETE</button>

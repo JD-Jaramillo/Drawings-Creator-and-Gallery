@@ -255,3 +255,7 @@ li {
 .canvresp {
   width: 100%
 }
+.dashspacing {
+  margin-top: 5%;
+  font-size: 25px;
+}
