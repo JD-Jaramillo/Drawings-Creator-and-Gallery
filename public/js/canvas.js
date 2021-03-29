@@ -4,10 +4,25 @@ window.addEventListener('load', () => {
     document.addEventListener('mouseup', stopPainting);
     document.addEventListener('mousemove', tool);
 });
+const saveBtn = document.getElementById('save')
 const canvas = document.querySelector('#canvas')
 const ctx = canvas.getContext('2d');
 let coord = { x: 0, y: 0 };
 let paint = false;
+
+const saveButtonHandler = async (event) => {
+    if (event.target.id === 'save') {
+      const response = await fetch(`/api/drawing/save`, {
+        method: 'PUT',
+      });
+  
+      if (response.ok) {
+        document.location.replace('/drawing');
+      } else {
+        alert('Failed to save drawing');
+      }
+    }
+  };
 
 function getPosition(event) {
     coord.x = event.clientX - canvas.offsetLeft;
@@ -83,3 +98,4 @@ function clearArea() {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 
+saveBtn.addEventListener('submit', saveButtonHandler)

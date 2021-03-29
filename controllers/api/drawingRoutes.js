@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Drawing } = require('../../models');
+const cloudinary = require('cloudinary').v2;
 
 router.post('/', async (req, res) => {
     try {
@@ -13,6 +14,27 @@ router.post('/', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+// Saves image to Cloudinary
+router.put('/save', async (req, res) => {
+    try {
+        const imageURL = document.querySelector('canvas').toDataURL( 'image/jpeg', 1.0);
+        const userName = req.session.user_name;
+        const fileName = document.querySelector('input[name="drawing-title"]').value.trim();
+        const pubID = `${userName}/${fileName}`;
+    
+        cloudinary.uploader.upload(imageURL, {
+          public_id: `${pubID}`,
+          overwrite: true
+        })
+        .then((res) => {
+            
+        });
+    }
+    catch (error) {
+        console.log(error);
+    }
+})
 
 router.delete('/:id', async (req, res) => {
     try {
