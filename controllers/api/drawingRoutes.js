@@ -16,19 +16,19 @@ router.post('/', async (req, res) => {
 });
 
 // Saves image to Cloudinary
-router.put('/save', async (req, res) => {
+router.post('/save', async (req, res) => {
     try {
-        const imageURL = document.querySelector('canvas').toDataURL( 'image/jpeg', 1.0);
-        const userName = req.session.user_name;
-        const fileName = document.querySelector('input[name="drawing-title"]').value.trim();
-        const pubID = `${userName}/${fileName}`;
+        // const imageURL = document.querySelector('canvas').toDataURL( 'image/jpeg', 1.0);
+        // const userName = req.session.user_name;
+        // const fileName = document.querySelector('input[name="drawing-title"]').value.trim();
+        console.log("test");
     
-        cloudinary.uploader.upload(imageURL, {
-          public_id: `${pubID}`,
+        cloudinary.uploader.upload(req.body.imageURL, {
+        //   public_id: `${userName}/${fileName}`,
           overwrite: true
-        })
-        .then((res) => {
-            
+        }, (err, result) => {
+            console.log(result);
+            res.json(result);
         });
     }
     catch (error) {

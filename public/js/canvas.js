@@ -7,23 +7,30 @@ window.addEventListener('load', () => {
 const saveBtn = document.getElementById('save')
 const canvas = document.querySelector('#canvas')
 const ctx = canvas.getContext('2d');
+ctx.fillStyle = "rgb(238,238,238)";
+ctx.fillRect(0,0,800,500);
 let coord = { x: 0, y: 0 };
 let paint = false;
 
 const saveButtonHandler = async (event) => {
+    const imageURL = document.querySelector('#canvas').toDataURL( 'image/jpeg', 1.0);
+    // const fileName = document.querySelector('input[name="drawing-title"]').value.trim();
     if (event.target.id === 'save') {
       const response = await fetch(`/api/drawing/save`, {
-        method: 'PUT',
+        method: 'POST',
+        body: JSON.stringify({imageURL,username, filename}),
+        headers: {
+            "Content-Type": "application/json"
+        }
       });
   
       if (response.ok) {
-        document.location.replace('/drawing');
+        // document.location.replace('/drawing');
       } else {
         alert('Failed to save drawing');
       }
     }
   };
-
 function getPosition(event) {
     coord.x = event.clientX - canvas.offsetLeft;
     coord.y = event.clientY - canvas.offsetTop;
@@ -98,4 +105,4 @@ function clearArea() {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 
-saveBtn.addEventListener('submit', saveButtonHandler)
+saveBtn.addEventListener('click', saveButtonHandler);
