@@ -123,9 +123,18 @@ h2 {
 }
 .row {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column-reverse;
   margin: 5%;
   justify-content: center;
+  width: 85%;
+}
+@media only screen and (min-width: 768px) {
+  .row {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 5%;
+    justify-content: center;
+  }
 }
 .subbtn {
   display: flex;
@@ -143,6 +152,7 @@ h2 {
   border-color: #eee;
   border-width: 2px;
   border-style: outset;
+  margin: 3%;
 }
 .signup {
   padding: 2%;
@@ -152,6 +162,7 @@ h2 {
   border-color: #eee;
   border-width: 2px;
   border-style: outset;
+  margin: 3%;
 }
 .btnplc {
   justify-content: center;
@@ -165,6 +176,7 @@ h2 {
   justify-content: center;
 }
 .dashview {
+  max-width: 100vw;
   color: #eee;
 }
 li {
@@ -225,6 +237,7 @@ li {
   cursor: pointer;
   
 }
+
 .dash {
   display: flex;
   flex-direction: column;
@@ -240,12 +253,48 @@ li {
   background-color: #414141;
   margin-right: 2%
 }
+.uk-first-column {
+  margin: 5%;
+  min-height: calc(10vh) !important;
+}
+@media only screen and (min-width: 786px) {
+  .uk-first-column {
+    padding-top: 10%;
+    min-height: calc(100vh) !important;
+  }
+}
 .dashpic {
-  margin-left: 5%;
-  margin-top: 10%;
+  width: 100%;
+  
+  margin: 5%, 5%, 5%, 5%;
+}
+@media only screen and (min-width: 768px) {
+  .dashpic {
+    margin-left: 10%;
+    margin-top: 10%;
+    min-height: 500px;
+  }
+}
+.grid {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 768px) {
+  .grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
 }
 .imgborder {
-  border-radius: 10%;
+  max-height: 150px;
+  max-width: 300px;
+}
+@media only screen and (min-width: 768px){
+  .imgborder {
+    max-height: 350px;
+    max-width: 700px;
+  } 
 }
 .uk-grid>*>:last-child {
   margin-bottom: 0;
@@ -272,5 +321,13 @@ li {
   margin-left: 18%;
 }
 .logindiv {
-  margin-left: 8%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+@media only screen and (min-width: 768) {
+  .logindiv {
+    margin-left: 8%;
+  }
 }

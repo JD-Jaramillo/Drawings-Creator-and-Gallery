@@ -23,7 +23,7 @@
     <container class="canvaslay">
         <section id="toolbar">
             <div class="type" id="draw">
-                <input type="radio" name="tool" class="tool" id="pen" value="0" onchange="tool();">
+                <input type="radio" name="tool" class="tool" id="pen" value="0" onchange="tool();" checked>
                 <label for="pen">
                     <i class="las la-pen"></i>
                 </label>
@@ -52,7 +52,7 @@
             <p>Color</p>
             <input type="color" value="#000000" id="selColor" class="linealt">
             <div class="unrebtn">
-            <button id="undo" class="action">Undo</button>
+            <button id="undo" class="action" onclick="undo();">Undo</button>
             <button id="redo" class="action">Redo</button>
             </div>
             </section>

@@ -1,8 +1,21 @@
+// // import default from module
+// import FloodFill from 'q-floodfill'
+// // get 2d context
+// const context = canvas.getContext('2d')
+// // get image data
+// const imgData = context.getImageData(0, 0, canvas.width, canvas.height)
+// // Construct flood fill instance
+// const floodFill = new FloodFill(imgData)
+// // Modify image data
+// floodFill.fill(fillColor, x, y, 0)
+// // put the modified data back in context
+// context.putImageData(floodFill.imageData, 0, 0)
+
 window.addEventListener('load', () => {
 
-    document.addEventListener('mousedown', startPainting);
-    document.addEventListener('mouseup', stopPainting);
-    document.addEventListener('mousemove', tool);
+    canvas.addEventListener('mousedown', startPainting);
+    canvas.addEventListener('mouseup', stopPainting);
+    canvas.addEventListener('mousemove', tool);
 });
 var rangeWidth = document.getElementById("inputWidth");
 var outputWidth = document.getElementById("widthOut");
@@ -17,6 +30,7 @@ const ctx = canvas.getContext('2d');
 let coord = { x: 0, y: 0 };
 let paint = false;
 let points = [];
+let redoDraw = [];
 
 function getPosition(event) {
     coord.x = event.clientX - canvas.offsetLeft;
