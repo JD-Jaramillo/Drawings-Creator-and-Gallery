@@ -1,5 +1,5 @@
 # Drawings-Creator-and-Gallery
-Users can LogIn or create an account, after getting to their dashboard the user can then create drawings on their profile which are then stored in MySQL database, the user can then go back in and update the  drawings
+Users can LogIn or create an account, after getting to their dashboard the user can then create drawings on their profile which are then stored in MySQL database, the user can then go back in and update, delete, or download the drawings. 
 
 ## Table of Contents
 
@@ -11,24 +11,21 @@ Users can LogIn or create an account, after getting to their dashboard the user 
 * [Installation](#Installation)
 
 ## Canvas
-
+Created a drawing canvas using scss and JavaScript to allow the user to draw on the canvas using either a paintbrush, a pen or a bucket. 
 
 ## Routers
-Added the routes for 
-
+Added the routes for the back end to connect to the server and render the appropriate pages using handlebars.js when called upon. 
 
 ## Models
-Added the models for the User and for the Drawings, and also made them 
+Added the models for the User and for the Drawings, and also made the neessary associations for the models to appropriately refer to each other. 
 
 ## Handlebars
-
-* Edamam API for recipes, API being used through a Proxy server
-* Cocktail DB API for cocktail suggestions
-* Calling cocktail API a second time in order to get cocktail ingredients (first API only provided ID)
+Created handlebars using Handlebars.js to render the pages (HTML) when being called upon in the routes. So that when the user clicks on a particular link (Login, dashboard etc.) the pages are then rendered as requested. 
 
 ## Server
+We used Express and sequeleize in the back end and then hosted the site on Heroku. The site can be seen below. 
 
-Link to deployed recipe and cocktail suggester: [Deployed site]()
+Link to deployed drawings creator and gallery: [Deployed site]()
 
 ![image of home page with slideshow](images/png)
 ![image of login page](images/)
