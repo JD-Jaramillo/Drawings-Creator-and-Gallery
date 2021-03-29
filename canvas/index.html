@@ -23,23 +23,23 @@
     <container class="canvaslay">
         <section id="toolbar">
             <div class="type" id="draw">
-                <input type="radio" name="tool" class="tool" id="pen" value="0" checked>
+                <input type="radio" name="tool" class="tool" id="pen" value="0" onchange="tool();">
                 <label for="pen">
                     <i class="las la-pen"></i>
                 </label>
-                <input type="radio" name="tool" class="tool" id="brush" value="1">
+                <input type="radio" name="tool" class="tool" id="brush" value="1" onchange="tool();">
                 <label for="brush">
                     <i class="las la-paint-brush"></i>
                 </label>
-                <input type="radio" name="tool" class="tool" id="bucket" value="2">
+                <input type="radio" name="tool" class="tool" id="bucket" value="2" onchange="tool();">
                 <label for="bucket">
                     <i class="las la-fill-drip"></i>
                 </label>
-                <input type="radio" name="tool" class="tool" id="eraser" value="3">
+                <input type="radio" name="tool" class="tool" id="eraser" value="3" onchange="tool();">
                 <label for="eraser">
                     <i class="las la-eraser"></i>
                 </label>
-                <input type="radio" name="tool" class="tool" id="text" value="4">
+                <input type="radio" name="tool" class="tool" id="text" value="4" onchange="tool();">
                 <label for="text">
                     <i class="las la-text-width"></i>
                 </label>

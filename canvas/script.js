@@ -2,7 +2,7 @@ window.addEventListener('load', () => {
 
     document.addEventListener('mousedown', startPainting);
     document.addEventListener('mouseup', stopPainting);
-    document.addEventListener('mousemove', sketch);
+    document.addEventListener('mousemove', tool);
 });
 var rangeWidth = document.getElementById("inputWidth");
 var outputWidth = document.getElementById("widthOut");
@@ -16,6 +16,7 @@ const canvas = document.querySelector('#canvas')
 const ctx = canvas.getContext('2d');
 let coord = { x: 0, y: 0 };
 let paint = false;
+let points = [];
 
 function getPosition(event) {
     coord.x = event.clientX - canvas.offsetLeft;
@@ -24,76 +25,111 @@ function getPosition(event) {
 function startPainting(event) {
     paint = true;
     getPosition(event);
-    draw(event);
+    lastX = coord.x;
+    lastY = coord.y;
+    points.push({
+        x: coord.x,
+        y: coord.y,
+        size: document.querySelector('#inputWidth').value,
+        color: document.querySelector('#selColor').value,
+        mode: "drawing"
+    })
 }
-function draw() {
-    type = () => {
+
+function tool(event) {
+    function type() {
         var radio = document.getElementsByName('tool');
-        console.log(radio);
+        //console.log(radio);
         for (var i = 0; i < radio.length; i++) {
-            radio[i].onclick = () => {
-                let choice = this.id;
-                console.log(choice);
+            if (radio[i].checked) {
+                //console.log(radio[i].id);
+                return radio[i].id;
+
             }
         }
     };
     let choice = type();
-    let size = parseInt(document.querySelector("#inputWidth").value);
-    let color = document.querySelector("#selColor").value;
-    let opacity = parseInt(document.querySelector("#inputOpacity").value);
-
-    if (choice = "pen") {
+    //console.log(choice);
+    if (choice === "pen") {
+        if (!paint) return;
+        ctx.beginPath();
         ctx.lineWidth = 3;
-        ctx.lineCap = "butt";
-        ctx.strokeStyle = color;
-        ctx.globalAlpha = opacity/100;
-    } else if (choice ="brush") {
-        ctx.lineWidth = size;
-        ctx.lineCap = "round";
-        ctx.strokeStyle = color;
-        ctx.globalAlpha = opacity/100;
-    } else if (choice ="bucket") {
-        ctx.fillStyle = color;
-        ctx.fill();
-        ctx.globalAlpha = opacity/100;
-    } else if (choice ="eraser") {
-        ctx.globalCompositeOperation = "destination-out";
-        ctx.arc(x, y, 10, 0, 2 * Math.PI);
-        ctx.fill();
-        ctx.lineWidth = size;
-        ctx.moveTo(old.x, old.y);
+        ctx.lineCap = 'butt';
+        ctx.strokeStyle = document.querySelector('#selColor').value;
+        ctx.moveTo(coord.x, coord.y);
+        ctx.globalAlpha = document.querySelector('#inputOpacity').value / 100;
+        getPosition(event);
         ctx.lineTo(coord.x, coord.y);
-        old = {x: x, y: y};
-    } else if (choice ="text") {
-        ctx.font = "${size}px Verdana";
-        ctx.strokeText();
-        ctx.strokeStyle = color;
-        ctx.globalAlpha = opacity/100;
+        ctx.stroke();
+    } else if (choice === "brush") {
+        if (!paint) return;
+        ctx.beginPath();
+        ctx.lineWidth = document.querySelector('#inputWidth').value;
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = document.querySelector('#selColor').value;
+        ctx.moveTo(coord.x, coord.y);
+        ctx.globalAlpha = document.querySelector('#inputOpacity').value / 100;
+        getPosition(event);
+        ctx.lineTo(coord.x, coord.y);
+        ctx.stroke();
+    } else if (choice === "bucket") {
+        if (!paint) return;
+        ctx.beginPath();
+        ctx.fillStyle = document.querySelector('#selColor').value;
+        ctx.fill(region);
+        ctx.globalAlpha = document.querySelector('#inputOpacity').value / 100;
+    } else if (choice === "eraser") {
+        if (!paint) return;
+        ctx.beginPath();
+        ctx.lineWidth = document.querySelector('#inputWidth').value;
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = '#eee';
+        ctx.moveTo(coord.x, coord.y);
+        ctx.globalAlpha = 1;
+        getPosition(event);
+        ctx.lineTo(coord.x, coord.y);
+        ctx.stroke();
+
     } else (console.log("error"))
 
 }
 function stopPainting() {
     paint = false;
 }
-function sketch(event) {
-    if (!paint) return;
-    ctx.beginPath();
-    ctx.lineWidth = document.querySelector('#inputWidth').value;
-    ctx.lineCap = 'round';
-    ctx.strokeStyle = document.querySelector('#selColor').value;
-    ctx.moveTo(coord.x, coord.y);
-    ctx.globalAlpha = document.querySelector('#inputOpacity').value / 100;
-    getPosition(event);
-    ctx.lineTo(coord.x, coord.y);
-    ctx.stroke();
-}
+
 function clearArea() {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 function undo() {
-
+    var prevPoint = points.pop();
+    redoDraw.unshift(prevPoint);
+    redrawAll();
 }
 function redo() {
-
+}
+function redrawAll() {
+    if (points.length == 0) { return; }
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (var i = 0; i < points.length; i++) {
+        var pt = points[i];
+        var begin = false;
+        if (ctx.lineWidth != pt.size) {
+            ctx.lineWidth = pt.size;
+            begin = true;
+        }
+        if (ctx.strokeStyle != pt.color) {
+            ctx.strokeStyle = pt.color;
+            begin = true;
+        }
+        if (pt.mode == "begin" || begin) {
+            ctx.beginPath();
+            ctx.moveTo(pt.x, pt.y);
+        }
+        ctx.lineTo(pt.x, pt.y);
+        if (pt.mode == "end" || (i == points.length - 1)) {
+            ctx.stroke();
+        }
+    }
+    ctx.stroke();
 }
