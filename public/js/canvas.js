@@ -25,7 +25,7 @@ const saveButtonHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/drawing');
+        // document.location.replace('/drawing');
       } else {
         alert('Failed to save drawing');
       }

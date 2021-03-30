@@ -18,13 +18,10 @@ router.post('/', async (req, res) => {
 // Saves image to Cloudinary
 router.post('/save', async (req, res) => {
     try {
-        // const imageURL = document.querySelector('canvas').toDataURL( 'image/jpeg', 1.0);
-        // const userName = req.session.user_name;
-        // const fileName = document.querySelector('input[name="drawing-title"]').value.trim();
         console.log("test");
     
         cloudinary.uploader.upload(req.body.imageURL, {
-          public_id: req.body.fileName,
+          public_id: `${req.session.user_id}/${req.body.fileName}`,
           overwrite: true
         }, (err, result) => {
             console.log(result);
