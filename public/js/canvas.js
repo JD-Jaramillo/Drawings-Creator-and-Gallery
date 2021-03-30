@@ -4,11 +4,37 @@ window.addEventListener('load', () => {
     document.addEventListener('mouseup', stopPainting);
     document.addEventListener('mousemove', tool);
 });
+const saveBtn = document.getElementById('save')
 const canvas = document.querySelector('#canvas')
 const ctx = canvas.getContext('2d');
+ctx.fillStyle = "rgb(238,238,238)";
+ctx.fillRect(0,0,800,500);
 let coord = { x: 0, y: 0 };
 let paint = false;
 
+// Saves current image and fetches API to post image data
+const saveButtonHandler = async (event) => {
+    // Captures drawing data from canvas element and converts to DataURL with image/jpeg formatting
+    const imageURL = document.querySelector('#canvas').toDataURL( 'image/jpeg', 1.0);
+    const fileName = localStorage.getItem('lastDrawing');
+
+    // Posts to API, passing DataURL and filename as stringified JSON object
+    if (event.target.id === 'save') {
+      const response = await fetch(`/api/drawing/save`, {
+        method: 'POST',
+        body: JSON.stringify({imageURL, fileName}),
+        headers: {
+            "Content-Type": "application/json"
+        }
+      });
+  
+      if (response.ok) {
+        // document.location.replace('/drawing');
+      } else {
+        alert('Failed to save drawing');
+      }
+    }
+  };
 function getPosition(event) {
     coord.x = event.clientX - canvas.offsetLeft;
     coord.y = event.clientY - canvas.offsetTop;
@@ -83,3 +109,4 @@ function clearArea() {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 
+saveBtn.addEventListener('click', saveButtonHandler);

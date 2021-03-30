@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const cloudinary = require('cloudinary');
 
 class Drawing extends Model { }
 
@@ -33,6 +34,7 @@ Drawing.init(
     },
     {
         sequelize,
+        cloudinary,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
