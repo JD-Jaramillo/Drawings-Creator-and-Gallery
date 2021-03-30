@@ -24,7 +24,7 @@ router.post('/save', async (req, res) => {
         console.log("test");
     
         cloudinary.uploader.upload(req.body.imageURL, {
-        //   public_id: `${userName}/${fileName}`,
+          public_id: req.body.fileName,
           overwrite: true
         }, (err, result) => {
             console.log(result);

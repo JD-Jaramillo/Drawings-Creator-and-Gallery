@@ -14,18 +14,18 @@ let paint = false;
 
 const saveButtonHandler = async (event) => {
     const imageURL = document.querySelector('#canvas').toDataURL( 'image/jpeg', 1.0);
-    // const fileName = document.querySelector('input[name="drawing-title"]').value.trim();
+    const fileName = localStorage.getItem('lastDrawing');
     if (event.target.id === 'save') {
       const response = await fetch(`/api/drawing/save`, {
         method: 'POST',
-        body: JSON.stringify({imageURL,username, filename}),
+        body: JSON.stringify({imageURL, fileName}),
         headers: {
             "Content-Type": "application/json"
         }
       });
   
       if (response.ok) {
-        // document.location.replace('/drawing');
+        document.location.replace('/drawing');
       } else {
         alert('Failed to save drawing');
       }
