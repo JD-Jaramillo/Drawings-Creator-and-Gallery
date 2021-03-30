@@ -14,6 +14,7 @@ router.get('/', withAuth, (req, res) => {
         attributes: [
             'id',
             'name',
+            'pic',
             'description',
             'date_created',
         ],
@@ -25,7 +26,6 @@ router.get('/', withAuth, (req, res) => {
         ]
     })
         .then(dbPostData => {
-            // console.log(dbPostData)
             // serialize data before passing to template
             const drawings = dbPostData.map(post => post.get({ plain: true }));
             console.log(drawings)
