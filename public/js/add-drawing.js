@@ -45,3 +45,5 @@ const delButtonHandler = async (event) => {
 document.querySelector('.new-drawing-form').addEventListener('submit', newDrawingHandler);
 // Event Listener for the drawing delete button
 document.querySelector('.your-drawings').addEventListener('submit', delButtonHandler);
+
+
