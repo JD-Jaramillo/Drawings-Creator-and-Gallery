@@ -42,3 +42,12 @@ See deployed site here: [Deployed Site](https://drawings-creator-and-gallery.her
 To view our code see our GitHub below. 
 
 See repository here: [GitHub Repo](https://github.com/JD-Jaramillo/Drawings-Creator-and-Gallery)
+
+## Contributors
+[Juan Jaramillo](https://github.com/JD-Jaramillo)
+
+[Susan Ashmore](https://github.com/scashmore)
+
+[Andrew Coon](https://github.com/ACCoon)
+
+[Milton](https://github.com/basedmilz)
