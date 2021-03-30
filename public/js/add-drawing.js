@@ -6,6 +6,9 @@ const newDrawingHandler = async (event) => {
   const name = document.querySelector('input[name="drawing-title"]').value.trim();
   const description = document.querySelector('input[name="drawing-description"]').value.trim();
 
+  //Save drawing name to localstorage for upload to Cloudinary
+  localStorage.setItem('lastDrawing', name);
+
   // use the add a new drawing drawing route to add the drawing 
   // user id is added from the session information in the route
   if (name && description) {
