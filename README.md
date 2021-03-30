@@ -25,18 +25,19 @@ Created handlebars using Handlebars.js to render the pages (HTML) when being cal
 ## Server
 We used Express and sequeleize in the back end and then hosted the site on Heroku. The site can be seen below. 
 
-Link to deployed drawings creator and gallery: [Deployed site]()
+Link to deployed drawings creator and gallery: [Deployed site](https://drawings-creator-and-gallery.herokuapp.com/)
 
-![image of home page with slideshow](images/png)
-![image of login page](images/)
-![image of dashboard](images/)
-![image of canvas](images/)
+![image of home page with slideshow](/public/images/homepagewithslideshow.png)
+![image of login page](/public/images/loginpage.png)
+![image of dashboard](/public/images/dashboard.png)
+![image of canvas](/public/images/canvas.png)
+![image of drawing on dashboard](/public/images/drawingondashboardview.png)
 
 ## Installation
 
 There is no need to install anything, to use the drawings creator and gallery simply follow the link below. 
 
-See deployed site here: [Deployed Site]()
+See deployed site here: [Deployed Site](https://drawings-creator-and-gallery.herokuapp.com/)
 
 To view our code see our GitHub below. 
 
