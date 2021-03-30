@@ -14,6 +14,7 @@ router.get('/', withAuth, (req, res) => {
         attributes: [
             'id',
             'name',
+            'pic',
             'description',
             'date_created',
         ],
