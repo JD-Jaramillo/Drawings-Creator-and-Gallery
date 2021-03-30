@@ -32,10 +32,6 @@
                         <label for="brush">
                             <i class="las la-paint-brush"></i>
                         </label>
-                        <input type="radio" name="tool" class="tool" id="bucket" value="2" onchange="tool();">
-                        <label for="bucket">
-                            <i class="las la-fill-drip"></i>
-                        </label>
                         <input type="radio" name="tool" class="tool" id="eraser" value="3" onchange="tool();">
                         <label for="eraser">
                             <i class="las la-eraser"></i>
@@ -50,10 +46,6 @@
                             oninput="opacityVal(value)">
                         <p>Color</p>
                         <input type="color" value="#000000" id="selColor" class="linealt">
-                        <div class="unrebtn">
-                            <button id="undo" class="action">Undo</button>
-                            <button id="redo" class="action">Redo</button>
-                        </div>
                     </section>
                 </section>
                 <canvas id="canvas" width="800" Height="500"></canvas>
