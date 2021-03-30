@@ -21,7 +21,8 @@ const newDrawingHandler = async (event) => {
     });
     // if the response is okay, reload the page, showing the newest drawing now in the user's drawing list
     if (response.ok) {
-      document.location.replace('/drawing');
+      const drawing = await response.json();
+      document.location.replace(`/drawing/${drawing.id}`);
       // otherwise, display the error
     } else {
       alert(response.statusText);

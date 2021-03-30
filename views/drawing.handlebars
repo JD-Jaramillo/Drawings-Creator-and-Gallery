@@ -5,7 +5,7 @@
 <div id="modal-full" class="uk-modal-full dashview canvresp" uk-modal>
     <style>
         .dashview {
-            background-image: url('doodle_node.png');
+            background-image: url('/doodle_node.png');
             background-repeat: no-repeat;
             background-size: cover;
             background-origin: center;
@@ -14,7 +14,7 @@
     <div class="dashview">
         <div class="uk-modal-body">
             <div class="mininav">
-                <button id="save" class="action">Save</button>
+                <button id="save" class="action" data-id="{{ drawing.id }}">Save</button>
                 <button id="clear" class="action" onclick="clearArea();return false;">Clear Canvas</button>
                 <button id="delete" class="action">Delete</button>
             </div>
@@ -50,4 +50,4 @@
         </div>
     </div>
 </div>
-<script src="../js/canvas.js"></script>
+<script src="/js/canvas.js"></script>
