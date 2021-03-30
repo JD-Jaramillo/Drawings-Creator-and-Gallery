@@ -12,9 +12,13 @@ ctx.fillRect(0,0,800,500);
 let coord = { x: 0, y: 0 };
 let paint = false;
 
+// Saves current image and fetches API to post image data
 const saveButtonHandler = async (event) => {
+    // Captures drawing data from canvas element and converts to DataURL with image/jpeg formatting
     const imageURL = document.querySelector('#canvas').toDataURL( 'image/jpeg', 1.0);
     const fileName = localStorage.getItem('lastDrawing');
+
+    // Posts to API, passing DataURL and filename as stringified JSON object
     if (event.target.id === 'save') {
       const response = await fetch(`/api/drawing/save`, {
         method: 'POST',

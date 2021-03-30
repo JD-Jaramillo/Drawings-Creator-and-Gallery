@@ -18,8 +18,7 @@ router.post('/', async (req, res) => {
 // Saves image to Cloudinary
 router.post('/save', async (req, res) => {
     try {
-        console.log("test");
-    
+        // Attempt to call Cloudinary uploader with jpeg DataURL from request, assigning public_id full path using current user's ID and filename
         cloudinary.uploader.upload(req.body.imageURL, {
           public_id: `${req.session.user_id}/${req.body.fileName}`,
           overwrite: true
