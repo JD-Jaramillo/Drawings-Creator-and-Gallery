@@ -8,7 +8,6 @@ router.post('/', async (req, res) => {
             ...req.body,
             user_id: req.session.user_id,
         });
-        res.render('drawing');
         res.status(200).json(newDrawing);
     } catch (err) {
         res.status(400).json(err);
@@ -16,15 +15,22 @@ router.post('/', async (req, res) => {
 });
 
 // Saves image to Cloudinary
-router.post('/save', async (req, res) => {
+router.put('/save', async (req, res) => {
     try {
         // Attempt to call Cloudinary uploader with jpeg DataURL from request, assigning public_id full path using current user's ID and filename
         cloudinary.uploader.upload(req.body.imageURL, {
           public_id: `${req.session.user_id}/${req.body.fileName}`,
           overwrite: true
-        }, (err, result) => {
+        }, async (err, result) => {
             console.log(result);
-            res.json(result);
+            const pic = await Drawing.update({
+                pic: result.secure_url,
+            }, {
+                where: {
+                    id: req.body.id
+                }
+            })
+            res.json(pic);
         });
     }
     catch (error) {

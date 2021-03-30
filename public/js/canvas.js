@@ -21,8 +21,8 @@ const saveButtonHandler = async (event) => {
     // Posts to API, passing DataURL and filename as stringified JSON object
     if (event.target.id === 'save') {
       const response = await fetch(`/api/drawing/save`, {
-        method: 'POST',
-        body: JSON.stringify({imageURL, fileName}),
+        method: 'PUT',
+        body: JSON.stringify({ imageURL, fileName, id: event.target.dataset.id }),
         headers: {
             "Content-Type": "application/json"
         }
